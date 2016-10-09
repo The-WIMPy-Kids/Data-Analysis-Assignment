@@ -37,7 +37,7 @@ plt.figure(1)
 N = 10
 cont = plt.contour(X, Y, Z, N)
 plt.clabel(cont, inline = 5, fontsize = 8)
-plt.title('Contour plot of the Gaussian')
+plt.title('Contour plot of the given Gaussian')
 plt.plot(mu_x, mu_y, 'bo')
 plt.vlines(mu_x, -6.0, mu_y, 'g', 'dashed')
 plt.hlines(mu_y, -7.0, mu_x, 'g', 'dashed')
@@ -45,17 +45,22 @@ plt.xlabel(r"$\mu_x =$"+str(mu_x)+" and "+r"$\mu_y =$"+str(mu_y))
 #define attributes of the text box
 #Square box with a padding of 0.2 around the text
 #White face colour and black edge colour with linewidth = 1
-bbox_props =  dict(boxstyle = "square, pad=0.2", fc = "w", ec = 'k', lw = 1)
-plt.text(3.8, 5.4, r"$\sigma^2_x=$"+str(sigma_sqr_x)+", "+r"$\sigma^2_y =$"+str(sigma_sqr_y)+", "+r"$\sigma_{xy} =$"+str(sigma_xy), ha="center", va="center", size = 14, bbox = bbox_props)
+bbox_props1 =  dict(boxstyle = "square, pad=0.2", fc = "w", ec = 'k', lw = 1)
+plt.text(3.8, 5.4, r"$\sigma^2_x=$"+str(sigma_sqr_x)+", "+r"$\sigma^2_y =$"+str(sigma_sqr_y)+", "+r"$\sigma_{xy} =$"+str(sigma_xy), ha="center", va="center", size = 14, bbox = bbox_props1)
 
 plt.figure(2)
 #2D random number generator
 X = []
 Y = []
-for i in range(50000):
+num_of_pts = 50000
+for i in range(num_of_pts):
     x = np.random.multivariate_normal([0, 0], [[9, -2],[-2, 6]])
-    X.append(10*x[0])
-    Y.append(10*x[1])
-plt.hist2d(X, Y, 300,cmap='inferno')
+    X.append(5*x[0])
+    Y.append(5*x[1])
+num_of_bins = 250
+plt.hist2d(X, Y, num_of_bins,cmap='inferno')
 plt.colorbar()
+plt.title('2D Histogram of Gaussian distributed random numbers')
+bbox_props2 = dict(boxstyle = "square, pad=0.2", fc="w", ec="b", lw = 1)
+plt.text(0,45,"No. of bins: "+r"$n_x$"+"= "+r"$n_y$"+"="+str(num_of_bins)+"; Number of points = "+str(num_of_pts), ha="center", va="center", size = 12, bbox = bbox_props2)
 plt.show()
