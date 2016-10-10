@@ -70,7 +70,7 @@ plt.hist2d(X1, Y1, num_of_bins2D,cmap='inferno')
 plt.colorbar()
 plt.title('2D Histogram of Gaussian distributed random numbers')
 bbox_props2 = dict(boxstyle = "square, pad=0.2", fc="w", ec="b", lw = 1)
-plt.text(0,45,"No. of bins: "+r"$n_x$"+"= "+r"$n_y$"+"="+str(num_of_bins2D)+"; Number of points = "+str(num_of_pts), ha="center", va="center", size = 12, bbox = bbox_props2)
+plt.text(0,9,"No. of bins: "+r"$n_x$"+"= "+r"$n_y$"+"="+str(num_of_bins2D)+"; Number of points = "+str(num_of_pts), ha="center", va="center", size = 12, bbox = bbox_props2)
 
 #Question 1d)
 #Construct and Plot Z
