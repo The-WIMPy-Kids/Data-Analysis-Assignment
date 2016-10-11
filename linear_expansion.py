@@ -1,3 +1,5 @@
+#This uses the iterative method.
+#For the analytical method checkout the analytical branch
 import numpy as np
 import matplotlib.pyplot as plt
 #import data from the file and store it in data
