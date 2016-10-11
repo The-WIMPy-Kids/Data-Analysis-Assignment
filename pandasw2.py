@@ -1,5 +1,7 @@
 #Question2
 #Estimating the mean, assigning the error and calculating typical fluctuation about mean.
+import matplotlib.pyplot as plt
+import numpy as np
 import math
 #import data from given file
 input = open('pandas.txt', 'r')
@@ -32,11 +34,24 @@ for i in range(panda_num):
 error_assigned = math.sqrt((1.0/(panda_num-1))*sum_dev_sqr)
 #fluctuation about mean:
 fluctuation = dev_mag_sum/panda_num
+#create a scatter plot of the data
+plt.figure(1)
+x = np.linspace(1, 1001, 1000)
+plt.plot(x, pandas, 'b^')
+plt.title("Scatter plot of panda weights")
+plt.xlabel("Panda number")
+plt.ylabel("Panda weight(kg)")
+plt.figure(2)
+plt.hist(pandas, 50, color = 'r')
+plt.title("Histogram of panda weights")
+plt.xlabel("Weight(kg)")
+plt.ylabel("Frequency")
+plt.show()
 #create an output file to store acquired data
 panda_out = open('panda_output.txt', 'w')
 print("Mean weight is " + str(mean_weight)+"\n")
 panda_out.write("Mean weight is " + str(mean_weight)+"\n")
 print("Error assigned is " + str(error_assigned)+"\n")
-panda_out.write("Error assigned is " + str(error_assigned))
+panda_out.write("Error assigned is " + str(error_assigned)+"\n")
 print("Typical fluctuation about mean is " + str(fluctuation)+"\n")
 panda_out.write("Typical fluctuation about mean is " + str(fluctuation))
