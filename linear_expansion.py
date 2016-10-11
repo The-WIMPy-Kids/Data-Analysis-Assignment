@@ -44,7 +44,7 @@ plt.plot([0, 10], [c_best, (m_best*10 + c_best)], color = 'g', linewidth = 2.0)
 #Text_box with extrapolated length
 bbox_props2 =  dict(boxstyle = "square, pad=0.4", fc = "w", ec = 'k', lw = 1)
 plt.text(3.5, 950, "At 15"+r"$^0C$"+", length = "+str(15*m_best + c_best)+"mm", size = 12, bbox = bbox_props2)
-print("Linear extrapolation upto 15"+"ºC"+" gives an expected length of "+str(15*m_best + c_best)+"mm")
+print("\n Linear extrapolation upto 15"+"ºC"+" gives an expected length of "+str(15*m_best + c_best)+"mm")
 print("m_best is "+str(m_best))
 print("c_best is "+str(c_best))
 #Linear extrapolation upto 15ºC gives an expected length of 1337.0421541416586
