@@ -39,8 +39,8 @@ max_slope = (lengths[max_index] - lengths[min_index])/(temps[max_index] - temps[
 min_c = (temps[max_index]*lengths[min_index] - temps[min_index]*lengths[max_index])/(temps[max_index] - temps[min_index])
 #max_c will correspond to the y co-ordinate of the maximum point.
 max_c = lengths[max_index]
-M = np.linspace(0, max_slope, 250)
-C = np.linspace(min_c, max_c, 250)
+M = np.linspace(0, max_slope, 500)
+C = np.linspace(min_c, max_c, 500)
 m_best = 0.0
 c_best = 0.0
 #Initialising Least Square distance (LSq)to the worst possible condition
@@ -62,10 +62,12 @@ plt.plot(temps, lengths, 'ro')
 plt.xlabel("Temperature ("+r"$^0C$)")
 plt.ylabel("Length (mm)")
 bbox_props1 =  dict(boxstyle = "square, pad=0.4", fc = "w", ec = 'k', lw = 1)
-plt.text(0.75, 1250, "slope : "+str(m_best)+" and intercept : "+str(c_best), size = 14, bbox = bbox_props1)
+plt.text(0.20, 1275, "slope : "+str(m_best)+r"$\frac{mm}{^0C}$"+" and intercept : "+str(c_best)+r"$mm$", size = 14, bbox = bbox_props1)
 plt.plot([0, 10], [c_best, (m_best*10 + c_best)], color = 'g', linewidth = 2.0)
 bbox_props2 =  dict(boxstyle = "square, pad=0.4", fc = "w", ec = 'k', lw = 1)
-plt.text(3.5, 950, "At 15"+r"$^oC$, length = "+str(15*m_best + c_best)+"mm", size = 14, bbox = bbox_props2)
-print("Linear extrapolation upto 15"+r"$^oC$ gives an expected length of "+str(15*m_best + c_best)+"mm")
+plt.text(3.5, 950, "At 15"+r"$^0C$"+", length = "+str(15*m_best + c_best)+"mm", size = 14, bbox = bbox_props2)
+print("Linear extrapolation upto 15"+"ºC"+" gives an expected length of "+str(15*m_best + c_best)+"mm")
+print("m is "+str(m_best))
+print("c is "+str(c_best))
 #Linear extrapolation upto 15$^oC$ gives an expected length of 1336.96991312mm
 plt.show()
