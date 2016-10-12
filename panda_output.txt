@@ -1,3 +1,3 @@
 Mean weight is 49.41660999999994
-Error assigned is 10.210954715603448
+Error assigned is 0.3228987398614375
 Typical fluctuation about mean is 8.110777120000005

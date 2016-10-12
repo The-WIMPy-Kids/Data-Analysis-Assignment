@@ -31,7 +31,8 @@ dev_mag_sum = 0.0
 for i in range(panda_num):
     sum_dev_sqr = sum_dev_sqr + ((pandas[i]-mean_weight)**2)
     dev_mag_sum = dev_mag_sum +abs(pandas[i]-mean_weight)
-error_assigned = math.sqrt((1.0/(panda_num-1))*sum_dev_sqr)
+#error_assigned = estimated std dev of sample mean
+error_assigned = math.sqrt((1.0/(panda_num*(panda_num-1)))*sum_dev_sqr)
 #fluctuation about mean:
 fluctuation = dev_mag_sum/panda_num
 #create a scatter plot of the data
