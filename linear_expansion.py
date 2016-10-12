@@ -31,7 +31,7 @@ for i in range(num_of_data_pts):
 m_best = (sum_ti_li - mean_temp*length_sum)/(sum_ti2 - num_of_data_pts*(mean_temp**2))
 c_best = mean_length - m_best*mean_temp
 #Making the scatter plot with the best-fit line
-t_ext = 2 #degree Celsius
+t_ext = 15 #degree Celsius
 plt.figure(1)
 plt.title("Scatter plot of lengths vs temperature")
 plt.plot(temps, lengths, 'ro')
