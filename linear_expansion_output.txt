@@ -1,0 +1,4 @@
+The estimate of the co-efficient of linear expansion is 22.901894357743284mm/ºC
+y - intercept of the best fit  993.5137387755093
+Linear extrapolation upto 15ºC gives an expected length of 1337.0421541416586 mm
+Error in Length at 15ºC is 26.7137818002212 mm

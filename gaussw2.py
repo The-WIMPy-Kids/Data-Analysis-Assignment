@@ -53,7 +53,7 @@ plt.text(3.8, 5.4, r"$\sigma^2_x=$"+str(sigma_sqr_x)+", "+r"$\sigma^2_y =$"+str(
 
 #Question 1b)
 #2D random number generator
-plt.figure(2)
+plt.figure(figsize=(12, 9))
 X1 = []
 Y1 = []
 num_of_pts = 50000
@@ -63,6 +63,7 @@ for i in range(num_of_pts):
     X1.append(x[0])
     Y1.append(x[1])
 #X, Y contain the X and Y co-ordinates of the randomly generated points.
+
 #Question 1c)
 num_of_bins2D = 250
 #plot the 2D histogram with colour scheme inferno

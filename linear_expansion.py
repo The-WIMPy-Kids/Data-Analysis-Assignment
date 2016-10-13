@@ -31,6 +31,7 @@ for i in range(num_of_data_pts):
 m_best = (sum_ti_li - mean_temp*length_sum)/(sum_ti2 - num_of_data_pts*(mean_temp**2))
 c_best = mean_length - m_best*mean_temp
 #Making the scatter plot with the best-fit line
+#Choose the extrapolated temperature
 t_ext = 15 #degree Celsius
 plt.figure(1)
 plt.title("Scatter plot of lengths vs temperature")
@@ -45,20 +46,14 @@ plt.plot([0, 10], [c_best, (m_best*10 + c_best)], color = 'g', linewidth = 2.0)
 #Text_box with extrapolated length
 bbox_props2 =  dict(boxstyle = "square, pad=0.4", fc = "w", ec = 'k', lw = 1)
 plt.text(3.5, 950, "At "+str(t_ext)+r"$^0C$"+", length = "+str(t_ext*m_best + c_best)+" mm", size = 12, bbox = bbox_props2)
-print("\n Linear extrapolation upto "+str(t_ext)+"ºC"+" gives an expected length of "+str(t_ext*m_best + c_best)+" mm")
-print("m_best is "+str(m_best))
-print("c_best is "+str(c_best))
+print("The estimate of the co-efficient of linear expansion is "+str(m_best)+"mm/ºC")
+print("y - intercept of the best fit  "+str(c_best))
+print("Linear extrapolation upto "+str(t_ext)+"ºC"+" gives an expected length of "+str(t_ext*m_best + c_best)+" mm")
 #Linear extrapolation upto 15ºC gives an expected length of 1337.0421541416586
-#Calculate single measurement error of lis:
-sigma_li2 = 0.0
-#First we technically calculate sum of squares of deviations from sample mean
-for length in lengths:
-    sigma_li2 = sigma_li2 + ((length - mean_length)**2)
-sigma_li2 = sigma_li2/(num_of_data_pts-2)
-#These formulae have been explained in the report
-sigma2_y_ext = sigma_li2*((1.0/num_of_data_pts)+((mean_temp**2)+(t_ext**2))/(sum_ti2 - num_of_data_pts*(mean_temp**2)))
-sigma_y_ext = math.sqrt(sigma2_y_ext)
-sigma_li = math.sqrt(sigma_li2)
-print("Error in li is " + str(sigma_li)+" mm"+"\n")
-print("Error in Length at "+str(t_ext)+"ºC is "+str(sigma_y_ext)+" mm")
+#Calculate the error in extrapolated value
+sum_of_squares = 0.0
+for i in range(num_of_data_pts):
+    sum_of_squares = sum_of_squares + (lengths[i] - (m_best*temps[i] + c_best))**2
+sigma_yi = math.sqrt(sum_of_squares/(num_of_data_pts-2))
+print("Error in Length at "+str(t_ext)+"ºC is "+str(sigma_yi)+" mm")
 plt.show()

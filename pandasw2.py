@@ -26,23 +26,14 @@ for panda in pandas:
 mean_weight = weight_sum/panda_num
 #sum of squares of deviations:
 sum_dev_sqr = 0.0
-#sum of magnitudes of deviations:
-dev_mag_sum = 0.0
 for i in range(panda_num):
     sum_dev_sqr = sum_dev_sqr + ((pandas[i]-mean_weight)**2)
-    dev_mag_sum = dev_mag_sum +abs(pandas[i]-mean_weight)
+#fluctuation about mean:
+fluctuation = math.sqrt((1.0/(panda_num-1))*sum_dev_sqr)
 #error_assigned = estimated std dev of sample mean
 error_assigned = math.sqrt((1.0/(panda_num*(panda_num-1)))*sum_dev_sqr)
-#fluctuation about mean:
-fluctuation = dev_mag_sum/panda_num
 #create a scatter plot of the data
 plt.figure(1)
-x = np.linspace(1, 1001, 1000)
-plt.plot(x, pandas, 'b^')
-plt.title("Scatter plot of panda weights")
-plt.xlabel("Panda number")
-plt.ylabel("Panda weight(kg)")
-plt.figure(2)
 plt.hist(pandas, 50, color = 'r')
 plt.title("Histogram of panda weights")
 plt.xlabel("Weight(kg)")
