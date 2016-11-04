@@ -1,3 +1,4 @@
+#Code for parts a,b,c of Problem 2
 import numpy as np
 import matplotlib.pyplot as plt
 import math
